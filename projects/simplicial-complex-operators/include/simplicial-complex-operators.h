@@ -39,6 +39,16 @@ class SimplicialComplexOperators {
         delete geometry;
     }
 
+    inline std::set<size_t> copyFromVector(Vector<size_t> v) const {
+        std::set<size_t> ss;
+        for (size_t idx = 0; idx < (size_t)v.size(); idx++) {
+            if (v[idx]) {
+                ss.insert(idx);
+            }
+        }
+        return ss;
+    }
+
     // Operators
     void assignElementIndices();
     SparseMatrix<size_t> buildVertexEdgeAdjacencyMatrix() const;
